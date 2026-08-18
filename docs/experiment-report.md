@@ -121,15 +121,15 @@ cột “thực tế” chỉ thay bằng thời gian đo được khi chạy th
 
 | Task | Điều kiện | Ước lượng trước (phút) | Thực tế minh họa (phút) | Độ lệch ước lượng | Ghi chú minh họa |
 |---|---|---:|---:|---:|---|
-| T1 | AI | 40 | 52 | -23,1% | Lần đầu đọc route, store và test hiện có. |
-| T2 | AI | 35 | 43 | -18,6% | Đã quen kiến trúc sau T1 nhưng vẫn phải review code AI. |
+| T1 | AI | 35 | 45 | -22,2% | Lần đầu đọc route, store và test hiện có. |
+| T2 | AI | 32 | 39 | -17,9% | Đã quen kiến trúc sau T1 nhưng vẫn phải review code AI. |
 | T3 | NoAI | 40 | 48 | -16,7% | Có điều kiện `approved=true` và nhóm theo thành viên. |
-| T4 | NoAI | 40 | 50 | -20,0% | Cần chuẩn hóa/nghiệm thu output theo ngày. |
+| T4 | NoAI | 42 | 50 | -16,0% | Cần chuẩn hóa/nghiệm thu output theo ngày. |
 
 `Độ lệch ước lượng (%) = 100 × (ước lượng trước − thời gian thực tế) / thời gian thực tế`.
 
-Trong bảng minh họa, thời gian trung bình AI là 47,5 phút, NoAI là 49,0 phút;
-chênh lệch AI so với NoAI là -3,1%. Đây chỉ là một phép tính kiểm tra form, không
+Trong bảng minh họa, thời gian trung bình AI là 42,0 phút, NoAI là 49,0 phút;
+chênh lệch AI so với NoAI là -14,3%. Đây chỉ là một phép tính kiểm tra form, không
 phải hiệu ứng quan sát được. Thứ tự AI → AI → NoAI → NoAI còn có thể tạo hiệu ứng
 quen service hoặc mệt mỏi; vì vậy khi đo thật cần ghi rõ thứ tự, video/timestamp,
 hash commit, log test và mọi gián đoạn.
