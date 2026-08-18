@@ -146,7 +146,7 @@ Ngược lại, với hệ thống lớn, nhiều lớp nghiệp vụ chồng ch
 phụ thuộc liên service và yêu cầu bảo trì cao, chi phí đọc context, kiểm chứng,
 đối soát và sửa hồi quy có thể tăng lên. Khi đó, tốc độ sinh code không còn là
 đại diện đầy đủ cho năng suất đầu-cuối; AI có thể giúp viết bản nháp nhanh hơn
-nhưng chưa chắc rút ngắn thời gian giao hàng.
+nhưng chưa chắc rút ngắn thời gian bàn giao sản phẩm.
 
 Do thời lượng demo có hạn, nhóm sử dụng `worklog-service` làm codebase thực hành
 thay cho bài toán đang triển khai tại công ty. Đây là lựa chọn cần thiết để không
