@@ -18,21 +18,75 @@ chứng bằng mã nguồn, commit và unit test.
   Các số giờ trong fixture không phải số liệu thí nghiệm và không dùng để kết
   luận AI nhanh hay chậm.
 
-## 3. Bốn nhiệm vụ thí nghiệm
+## 3. Quy trình thực hiện và bốn nhiệm vụ
 
-Mô tả chi tiết và acceptance criteria nằm trong
-[`task-cards.md`](task-cards.md).
+Mỗi task được thực hiện trên một nhánh mới từ **cùng baseline commit**. Đồng hồ
+bắt đầu khi đọc yêu cầu và dừng khi tất cả acceptance criteria đạt. Lưu video có
+timestamp, hash commit, log test trước/sau và — chỉ ở điều kiện AI — prompt có
+ảnh hưởng đáng kể. Không đọc yêu cầu task tiếp theo trước khi hoàn thành task
+hiện tại. Mọi task đều phải có unit test mới và không được thay seed data để làm
+test dễ hơn.
 
-| Thứ tự | Điều kiện | Nhiệm vụ |
-|---|---|---|
-| T1 | AI | Thêm báo cáo tổng số giờ theo project. |
-| T2 | AI | Thêm báo cáo tổng số giờ theo nhãn công việc. |
-| T3 | NoAI | Thêm báo cáo số giờ đã duyệt theo thành viên. |
-| T4 | NoAI | Thêm báo cáo số giờ theo ngày làm việc. |
+### T1 — AI: Báo cáo số giờ theo dự án
 
-Mỗi nhiệm vụ phải thực hiện trên nhánh mới từ cùng baseline commit, có unit test
-mới, commit riêng, log `go test ./...`, timestamp/video và nhật ký thời gian.
-Không đọc task card tiếp theo trước khi hoàn thành task đang làm.
+**Yêu cầu:** Thêm `GET /api/v1/reports/project-hours`. API trả về tổng `hours`
+theo `project`, sắp xếp project tăng dần theo tên.
+
+**Acceptance criteria:**
+
+1. Response HTTP 200 là JSON array có `project` và `total_hours`.
+2. Với seed data, `billing` là `5.5` giờ; `portal` là `7.5` giờ.
+3. Có unit test cho route mới.
+4. `go test ./...` pass.
+
+**Điều kiện:** Được dùng đúng một AI coding tool đã khai báo; lưu tool/model và
+prompt quan trọng.
+
+### T2 — AI: Báo cáo số giờ theo nhãn công việc
+
+**Yêu cầu:** Thêm `GET /api/v1/reports/label-hours`. API trả về tổng `hours`
+theo `label`, sắp xếp nhãn tăng dần theo tên.
+
+**Acceptance criteria:**
+
+1. Response HTTP 200 là JSON array có `label` và `total_hours`.
+2. Với seed data, `backend` là `4.5`, `frontend` là `4.0`, `testing` là `4.5`.
+3. Có unit test cho route mới.
+4. `go test ./...` pass.
+
+**Điều kiện:** Được dùng đúng một AI coding tool đã khai báo; lưu tool/model và
+prompt quan trọng.
+
+### T3 — NoAI: Báo cáo giờ đã được duyệt theo thành viên
+
+**Yêu cầu:** Thêm `GET /api/v1/reports/approved-member-hours`. API chỉ cộng
+worklog có `approved=true`, nhóm theo `member_id`, sắp xếp tăng dần theo ID.
+
+**Acceptance criteria:**
+
+1. Response HTTP 200 là JSON array có `member_id` và `total_hours`.
+2. Với seed data, `hai` là `3.0`, `hung` là `1.5`, `trang` là `4.0`; không có `chi`.
+3. Có unit test cho route mới.
+4. `go test ./...` pass.
+
+**Điều kiện:** Không dùng chatbot, coding agent hoặc autocomplete sinh mã. Chỉ
+dùng tài liệu chính thức và tìm kiếm web theo quy ước chung.
+
+### T4 — NoAI: Báo cáo số giờ theo ngày làm việc
+
+**Yêu cầu:** Thêm `GET /api/v1/reports/daily-hours`. API trả về tổng `hours`
+theo `work_date` (định dạng `YYYY-MM-DD`), sắp xếp tăng dần theo ngày.
+
+**Acceptance criteria:**
+
+1. Response HTTP 200 là JSON array có `work_date` và `total_hours`.
+2. Với seed data, các ngày từ `2026-08-10` đến `2026-08-14` có tổng lần lượt là
+   `3.0`, `2.5`, `4.0`, `1.5`, `2.0`.
+3. Có unit test cho route mới.
+4. `go test ./...` pass.
+
+**Điều kiện:** Không dùng chatbot, coding agent hoặc autocomplete sinh mã. Chỉ
+dùng tài liệu chính thức và tìm kiếm web theo quy ước chung.
 
 ## 4. Truy vết việc dùng AI
 

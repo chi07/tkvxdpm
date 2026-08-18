@@ -18,4 +18,5 @@ curl 'http://localhost:8080/api/v1/worklogs?member_id=hai'
 - `GET /api/v1/worklogs/{id}`
 - `POST /api/v1/worklogs`
 
-Chi tiết bốn nhiệm vụ thí nghiệm, bằng chứng và tiêu chí chấp nhận nằm ở [`task-cards.md`](task-cards.md).
+Chi tiết nhiệm vụ, bằng chứng và tiêu chí chấp nhận nằm ở
+[`experiment-report.md`](experiment-report.md).
