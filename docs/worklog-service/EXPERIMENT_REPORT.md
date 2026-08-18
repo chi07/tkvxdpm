@@ -21,7 +21,7 @@ chứng bằng mã nguồn, commit và unit test.
 ## 3. Bốn nhiệm vụ thí nghiệm
 
 Mô tả chi tiết và acceptance criteria nằm trong
-[`experiments/task-cards.md`](experiments/task-cards.md).
+[`task-cards.md`](task-cards.md).
 
 | Thứ tự | Điều kiện | Nhiệm vụ |
 |---|---|---|

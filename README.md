@@ -1,2 +1,19 @@
-# tkvxdpm
-tkvxdpm
+# TKVX DPM
+
+Repository này chứa mã nguồn và tài liệu phục vụ thí nghiệm về năng suất lập
+trình khi dùng AI.
+
+## Cách đọc tài liệu
+
+- [Yêu cầu đề tài](docs/requirements.md)
+- [Giới thiệu và cách chạy worklog-service](docs/worklog-service/README.md)
+- [Báo cáo môi trường thí nghiệm](docs/worklog-service/EXPERIMENT_REPORT.md)
+- [Bốn task thí nghiệm AI → AI → NoAI → NoAI](docs/worklog-service/task-cards.md)
+
+## Chạy service
+
+```bash
+cd worklog-service
+go test ./...
+go run ./cmd/worklog-service
+```
