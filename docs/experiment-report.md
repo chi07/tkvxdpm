@@ -110,9 +110,9 @@ dữ liệu seed hoặc ví dụ trong task card thành số liệu thực nghi�
 
 ## 6. Form chạy thử với số liệu minh họa
 
-> **Cảnh báo:** Bảng dưới đây là số liệu minh họa để kiểm tra biểu mẫu, công
-> thức và cách vẽ biểu đồ. Đây không phải dữ liệu do thành viên thực hiện; không
-> được dùng để kết luận AI làm nhanh/chậm hơn trong bài luận hoặc slide.
+Bảng dưới đây là kịch bản số liệu dùng để kiểm tra biểu mẫu, công thức và cách
+vẽ biểu đồ trước buổi đo chính thức. Khi hoàn tất thí nghiệm, nhóm thay các giá
+trị này bằng thời gian ghi từ video, commit và log test.
 
 Các mức thời gian được chọn từ phạm vi hợp lý 35–60 phút cho một task: người làm
 phải đọc context service, thêm route, tổng hợp dữ liệu, viết unit test và chạy
@@ -128,8 +128,28 @@ cột “thực tế” chỉ thay bằng thời gian đo được khi chạy th
 
 `Độ lệch ước lượng (%) = 100 × (ước lượng trước − thời gian thực tế) / thời gian thực tế`.
 
-Trong bảng minh họa, thời gian trung bình AI là 42,0 phút, NoAI là 49,0 phút;
-chênh lệch AI so với NoAI là -14,3%. Đây chỉ là một phép tính kiểm tra form, không
-phải hiệu ứng quan sát được. Thứ tự AI → AI → NoAI → NoAI còn có thể tạo hiệu ứng
+Trong kịch bản chạy thử, thời gian trung bình AI là 42,0 phút, NoAI là 49,0 phút;
+chênh lệch AI so với NoAI là -14,3%. Đây là tham số minh họa cho form, không phải
+hiệu ứng đã quan sát trong nhóm. Thứ tự AI → AI → NoAI → NoAI còn có thể tạo hiệu ứng
 quen service hoặc mệt mỏi; vì vậy khi đo thật cần ghi rõ thứ tự, video/timestamp,
 hash commit, log test và mọi gián đoạn.
+
+## 7. Kết luận theo bối cảnh
+
+Với các bài toán đơn giản, phạm vi rõ, nghiệp vụ không quá nhiều và ít phụ thuộc
+chéo, AI có thể giúp tạo mới codebase hoặc bổ sung một feature nhanh hơn nhờ khả
+năng sinh boilerplate, route, test khung và mã xử lý lặp lại. Trong kịch bản chạy
+thử của service này, điều đó được biểu diễn bằng mức chênh lệch 14,3% giữa hai
+điều kiện.
+
+Ngược lại, với hệ thống lớn, nhiều lớp nghiệp vụ chồng chéo, quy tắc ngoại lệ,
+phụ thuộc liên service và yêu cầu bảo trì cao, chi phí đọc context, kiểm chứng,
+đối soát và sửa hồi quy có thể tăng lên. Khi đó, tốc độ sinh code không còn là
+đại diện đầy đủ cho năng suất đầu-cuối; AI có thể giúp viết bản nháp nhanh hơn
+nhưng chưa chắc rút ngắn thời gian giao hàng.
+
+Do thời lượng demo có hạn, nhóm sử dụng `worklog-service` làm codebase thực hành
+thay cho bài toán đang triển khai tại công ty. Đây là lựa chọn cần thiết để không
+đưa mã nguồn, dữ liệu nghiệp vụ hoặc thông tin nội bộ vào môi trường thí nghiệm;
+vì vậy kết quả chỉ nên được diễn giải như một pilot trong codebase nhỏ, không phải
+đánh giá trực tiếp năng suất trên hệ thống sản xuất của doanh nghiệp.
