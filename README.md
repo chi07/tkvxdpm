@@ -6,9 +6,9 @@ trình khi dùng AI.
 ## Cách đọc tài liệu
 
 - [Yêu cầu đề tài](docs/requirements.md)
-- [Giới thiệu và cách chạy worklog-service](docs/worklog-service/README.md)
-- [Báo cáo môi trường thí nghiệm](docs/worklog-service/EXPERIMENT_REPORT.md)
-- [Bốn task thí nghiệm AI → AI → NoAI → NoAI](docs/worklog-service/task-cards.md)
+- [Hướng dẫn chạy worklog-service](docs/service-guide.md)
+- [Báo cáo môi trường thí nghiệm](docs/experiment-report.md)
+- [Bốn task thí nghiệm AI → AI → NoAI → NoAI](docs/task-cards.md)
 
 ## Chạy service
 
