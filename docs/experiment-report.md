@@ -10,11 +10,11 @@ chứng bằng mã nguồn, commit và unit test.
 ## 2. Baseline có thể kiểm chứng
 
 - Ngôn ngữ: Go 1.26.
-- Không dùng thư viện ngoài; chạy bằng Go standard library.
+- Dùng SQLite qua driver Go; API và domain vẫn dùng Go standard library.
 - Baseline API: `GET /healthz`, `GET/POST /api/v1/worklogs`,
   `GET /api/v1/worklogs/{id}`.
 - Kiểm tra baseline: `go test ./...` và `go vet ./...`.
-- Dữ liệu seed nằm ở `internal/store/store.go` chỉ là fixture phục vụ test.
+- Dữ liệu seed nằm ở `internal/store/store.go` chỉ là fixture phục vụ test/demo.
   Các số giờ trong fixture không phải số liệu thí nghiệm và không dùng để kết
   luận AI nhanh hay chậm.
 
