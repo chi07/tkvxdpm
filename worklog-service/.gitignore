@@ -1,4 +1,4 @@
 # Go build artifacts
-worklog-service
+/worklog-service
 *.test
 coverage.out
